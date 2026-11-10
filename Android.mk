@@ -4,6 +4,7 @@
 LOCAL_PATH := $(call my-dir)
 
 # This makefile is only for DLKM
+ifeq ($(TARGET_USES_KERNEL_PLATFORM),true)
 ifneq ($(findstring vendor,$(LOCAL_PATH)),)
 
 ifneq ($(findstring opensource,$(LOCAL_PATH)),)
@@ -72,3 +73,4 @@ include $(DLKM_DIR)/Build_external_kernelmodule.mk
 ###########################################################
 
 endif # DLKM check
+endif # TARGET_USES_KERNEL_PLATFORM
